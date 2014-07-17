@@ -19,7 +19,6 @@ RUN cd /tmp && \
 
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
-COPY opt /opt
 COPY var /var
 # Chowned to root, so reverse that change
 RUN chown -R researcher /var/log/easydav /var/log/supervisor
