@@ -22,4 +22,6 @@ COPY etc /etc
 COPY var /var
 # Chowned to root, so reverse that change
 RUN chown -R researcher /var/log/easydav /var/log/supervisor
-#RUN chown -R nginx /var/lib/nginx
+
+# Check nginx config is OK
+RUN nginx -t
