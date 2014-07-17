@@ -1,5 +1,5 @@
 # DOCKER-VERSION 1.0
-FROM dit4c/project-base
+FROM dit4c/dit4c-container-base
 MAINTAINER t.dettrick@uq.edu.au
 
 # Install R
