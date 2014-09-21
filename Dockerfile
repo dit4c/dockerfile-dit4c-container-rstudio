@@ -20,6 +20,7 @@ RUN cd /tmp && \
 # Install libcurl-devel (necessary for RCurl package, a dependency of devtools)
 RUN yum install -y libcurl-devel
 
+# Install R packages used in intermediate bootcamp
 RUN Rscript -e \
   "options(repos=structure(c(CRAN='http://cran.ms.unimelb.edu.au'))); \
    install.packages('knitr'); \
