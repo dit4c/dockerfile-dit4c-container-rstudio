@@ -16,6 +16,9 @@ RUN cd /tmp && \
   rpm -ivh --nodeps rstudio-server.rpm && \
   rm rstudio-server.rpm && \
   cd -
+  
+# Install libcurl-devel (necessary for RCurl package, a dependency of devtools)
+RUN yum install -y libcurl-devel
 
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
