@@ -20,6 +20,23 @@ RUN cd /tmp && \
 # Install libcurl-devel (necessary for RCurl package, a dependency of devtools)
 RUN yum install -y libcurl-devel
 
+# Install R packages used in intermediate bootcamp
+RUN Rscript -e \
+  "options(repos=structure(c(CRAN='http://cran.ms.unimelb.edu.au'))); \
+   install.packages('knitr'); \
+   install.packages('testthat'); \
+   install.packages('assertthat'); \
+   install.packages('stringr'); \
+   install.packages('pander'); \
+   install.packages('ggplot2', dependencies = TRUE); \
+   install.packages('plyr'); \
+   install.packages('ggthemes'); \
+   install.packages('reshape2'); \
+   install.packages('gridExtra'); \
+   install.packages('RCurl'); \
+   install.packages('devtools'); \
+   install.packages('data.table')"
+
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
 COPY var /var
