@@ -23,8 +23,8 @@ RUN yum install -y libcurl-devel
 # Install R packages used in intermediate bootcamp
 RUN Rscript -e \
   " options(repos=structure(c(CRAN='http://cran.ms.unimelb.edu.au'))); \
-    install.packages('ggplot2', dependencies = TRUE);
-    install.packages(c(
+    install.packages('ggplot2', dependencies = TRUE); \
+    install.packages(c( \
       'knitr', \
       'testthat', \
       'assertthat', \
