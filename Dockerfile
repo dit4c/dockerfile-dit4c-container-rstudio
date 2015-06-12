@@ -10,12 +10,8 @@ RUN rpm --rebuilddb && fsudo yum install -y R libcurl-devel
 # Install RStudio
 RUN cd /tmp && \
   export BASE_ARCH=`uname --hardware-platform` && \
-  fsudo yum install -y compat-libffi psmisc && \
-  chmod u+w /usr/lib64/ && \
-  ln -s /usr/lib64/libssl.so.10 /usr/lib64/libssl.so.6 && \
-  ln -s /usr/lib64/libcrypto.so.10 /usr/lib64/libcrypto.so.6 && \
-  ln -s /usr/lib64/libgmp.so.10 /usr/lib64/libgmp.so.3 && \
-  fsudo rpm -ivh --nodeps http://download2.rstudio.org/rstudio-server-0.98.953-${BASE_ARCH}.rpm && \
+  rpm --rebuilddb && \
+  fsudo yum install -y psmisc http://download2.rstudio.org/rstudio-server-rhel-0.99.442-${BASE_ARCH}.rpm && \
   cd -
 
 # Install R packages used in intermediate bootcamp
