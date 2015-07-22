@@ -1,5 +1,5 @@
 # DOCKER-VERSION 1.0
-FROM quay.io/dit4c/dit4c-container-base:fakeroot
+FROM dit4c/dit4c-container-base
 MAINTAINER t.dettrick@uq.edu.au
 
 # Install R
