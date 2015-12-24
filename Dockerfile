@@ -36,9 +36,5 @@ RUN Rscript -e \
 COPY etc /etc
 COPY var /var
 
-# Because COPY doesn't respect USER...
-USER root
-RUN chown -R researcher:researcher /etc /var
-
 # Check nginx config is OK
 RUN nginx -t
