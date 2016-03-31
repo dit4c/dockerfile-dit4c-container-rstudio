@@ -1,18 +1,20 @@
 # DOCKER-VERSION 1.0
-FROM dit4c/dit4c-container-base
+FROM dit4c/dit4c-container-base:debian
 MAINTAINER t.dettrick@uq.edu.au
 
 # Install R
 #  - R
 #  - libcurl-devel (necessary for RCurl package, a dependency of devtools)
-RUN rpm --rebuilddb && yum install -y R libcurl-devel openssl-devel libxml2-devel
-
-# Install RStudio
-RUN cd /tmp && \
-  export BASE_ARCH=`uname --hardware-platform` && \
-  rpm --rebuilddb && \
-  yum install -y psmisc  https://download2.rstudio.org/rstudio-server-rhel-0.99.489-${BASE_ARCH}.rpm && \
-  cd -
+RUN echo "deb http://cran.csiro.au/bin/linux/debian jessie-cran3/" >> /etc/apt/sources.list && \
+  apt-key adv --keyserver keys.gnupg.net --recv-key 381BA480 && \
+  apt-get update && \
+  apt-get install -y gdebi-core r-base && \
+  export PKG=rstudio-server-0.99.893-amd64.deb && \
+  cd /tmp && \
+  curl -LOs https://download2.rstudio.org/$PKG && \
+  gdebi --non-interactive $PKG && \
+  rm $PKG && \
+  apt-get clean
 
 # Install R packages used in intermediate bootcamp
 RUN Rscript -e \
