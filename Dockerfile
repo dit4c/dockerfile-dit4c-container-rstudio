@@ -27,6 +27,7 @@ RUN Rscript -e \
       'stringr', \
       'pander', \
       'plyr', \
+      'dplyr', \
       'ggthemes', \
       'reshape2', \
       'gridExtra', \
