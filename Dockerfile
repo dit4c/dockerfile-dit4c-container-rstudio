@@ -18,7 +18,7 @@ RUN echo "deb https://cran.csiro.au/bin/linux/debian jessie-cran3/" >> /etc/apt/
 
 # Install R packages used in intermediate bootcamp
 RUN Rscript -e \
-  " options(repos=structure(c(CRAN='http://cran.csiro.au'))); \
+  " options(repos=structure(c(CRAN='https://cran.csiro.au'))); \
     install.packages('ggplot2', dependencies = TRUE); \
     install.packages(c( \
       'knitr', \
