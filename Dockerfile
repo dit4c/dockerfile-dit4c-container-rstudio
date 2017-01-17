@@ -5,7 +5,7 @@ MAINTAINER t.dettrick@uq.edu.au
 # Install R
 #  - R
 #  - libcurl-devel (necessary for RCurl package, a dependency of devtools)
-RUN echo "deb http://cran.csiro.au/bin/linux/debian jessie-cran3/" >> /etc/apt/sources.list && \
+RUN echo "deb https://cran.csiro.au/bin/linux/debian jessie-cran3/" >> /etc/apt/sources.list && \
   apt-key adv --keyserver keys.gnupg.net --recv-key 381BA480 && \
   apt-get update && \
   apt-get install -y gdebi-core r-base && \
