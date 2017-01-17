@@ -9,7 +9,7 @@ RUN echo "deb https://cran.csiro.au/bin/linux/debian jessie-cran3/" >> /etc/apt/
   apt-key adv --keyserver keys.gnupg.net --recv-key 381BA480 && \
   apt-get update && \
   apt-get install -y gdebi-core r-base && \
-  export PKG=rstudio-server-0.99.893-amd64.deb && \
+  export PKG=rstudio-server-1.0.136-amd64.deb && \
   cd /tmp && \
   curl -LOs https://download2.rstudio.org/$PKG && \
   gdebi --non-interactive $PKG && \
